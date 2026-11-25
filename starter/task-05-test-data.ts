@@ -29,17 +29,25 @@
  *   / countByStatus has typed parameters and return type, returns the correct result
  */
 
+import { TestCase } from "./task-04-interfaces";
+
 // TODO: додай тип / add a type
-export const testCases = [
+type TestCaseWithoutTags = Omit<TestCase, "tags">;
+
+export const testCases: TestCaseWithoutTags[] = [
   { id: 1, name: "Login with valid credentials", status: "passed" },
   { id: 2, name: "Login with invalid password", status: "failed" },
   { id: 3, name: "Logout from dashboard", status: "passed" },
   { id: 4, name: "Reset password flow", status: "skipped" },
 ];
 
-export function countByStatus(cases, status) {
+export function countByStatus(
+  cases: TestCaseWithoutTags[],
+  status: TestCase["status"],
+): number {
   // TODO: реалізуй / implement
-  return 0;
+
+  return cases.filter((testCase) => testCase.status === status).length;
 }
 
 export {};

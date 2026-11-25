@@ -27,10 +27,31 @@
  *   / there is a variable without owner and a variable with it
  */
 
+
 // TODO: опиши й експортуй TestCase / define and export TestCase
 
+export type Status = "passed" | "failed" | "skipped";
+export interface TestCase {
+  id: number;
+  name: string;
+  status: Status;
+  owner?: string;
+  tags: string[];
+}
 // TODO: firstCase (без owner / without owner) — export const firstCase: TestCase = ...
+export const firstCase: TestCase = {
+  id: 1,
+  name: "First",
+  status: "passed",
+  tags: ["one", "two", "three"],
+};
 
 // TODO: secondCase (з owner / with owner) — export const secondCase: TestCase = ...
-
+export const secondCase: TestCase = {
+  id: 2,
+  name: "Second",
+  status: "skipped",
+  owner: "Company second",
+  tags: ["four", "five", "six"],
+};
 export {};

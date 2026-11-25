@@ -33,23 +33,29 @@
  */
 
 // TODO: додай типи параметрів і тип повернення / add parameter types and return type
-export function formatTestName(name, suite) {
+export function formatTestName(name:string, suite:string):string {
   return `[${suite}] ${name}`;
 }
 
 export function sumDurations(durations: number[]): number {
-  // TODO: реалізуй / implement
-  return 0;
+  let sum=0;
+  for(let i=0; i<durations.length;i++){
+    sum+=durations[i]
+  }
+  return sum;
 }
 
 export function withOptionalRetries(name: string, retries?: number): string {
   // TODO: реалізуй / implement
-  return "";
+  if (retries!==undefined){
+    return `${name} retries: ${retries}`
+  }
+  return `${name} retries: 0`;
 }
 
 export function withDefaultRetries(name: string, retries: number = 1): string {
   // TODO: реалізуй / implement
-  return "";
+  return `${name} retries: ${retries}`
 }
 
 export {};
